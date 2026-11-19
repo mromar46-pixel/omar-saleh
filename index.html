@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Omar Saleh, performance marketer. Meta, TikTok, Snapchat and Google Ads for e-commerce brands across Egypt and the GCC.">
+<meta property="og:title" content="Omar Saleh | Performance Marketer">
+<meta property="og:image" content="omar.jpg">
+<title>Omar Saleh | Performance Marketer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: an ad account turned into an editorial stage. Warm dark, one ember accent; a live market ticker, a pinned horizontal case reel, and a working profit calculator. */
+:root{
+  color-scheme:dark;
+  --bg:#0E0B08; --bg-1:#17120D; --bg-2:#1F1812; --line:#2E241B; --fg:#F7EFE6; --dim:#B8AB9D; --faint:#7A6D60;
+  --or:#FF6A1F; --or-2:#FFA05C; --or-soft:rgba(255,106,31,.12); --glow:rgba(255,106,31,.38); --up:#4ADE80;
+  --display:"Unbounded",system-ui,sans-serif; --serif:"Fraunces",Georgia,serif; --body:"Manrope",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.65;overflow-x:hidden}
+.g{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.in{max-width:1200px;margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--or);letter-spacing:0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--or);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--or)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--or);color:#140904;text-decoration:none;font-weight:800;padding:15px 24px;border-radius:999px;border:0;cursor:pointer;font-size:15px;font-family:var(--body);transition:transform .3s var(--ease),box-shadow .3s ease}
+.btn:hover{box-shadow:0 16px 40px -14px var(--glow)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--or)}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:30;padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:14px;transition:background .4s ease,border-color .4s ease;border-bottom:1px solid transparent}
+.scrolled .nav{background:rgba(14,11,8,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.nav .in{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:15px;text-decoration:none}
+.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--or)}
+.brand small{display:block;font-family:var(--mono);font-weight:500;font-size:11px;color:var(--dim);letter-spacing:.06em}
+.nav-r{display:flex;gap:10px;align-items:center}
+.nav-r a.lnk{font-size:14px;color:var(--dim);text-decoration:none;padding:8px 12px}
+.nav-r a.lnk:hover{color:var(--fg)}
+@media (max-width:760px){.nav-r a.lnk{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:center;padding-top:120px;padding-bottom:40px;overflow:hidden}
+#chart{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+@media (max-width:700px){#chart{opacity:.35}.stat .v small{display:block;margin:6px 0 0}.final h2{font-size:clamp(40px,11.5vw,60px)}}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,var(--bg));z-index:0;pointer-events:none}
+.hero .in{position:relative;z-index:1;width:100%}
+.avail{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:rgba(23,18,13,.7);backdrop-filter:blur(8px);border-radius:999px;padding:7px 14px;font-size:13px;color:var(--dim)}
+.avail i{width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.hero h1{font-size:clamp(44px,8.2vw,124px);font-weight:900;line-height:.92;margin-top:26px;letter-spacing:-.035em}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .line > span{display:inline-block}
+.rot{display:inline-grid;vertical-align:bottom}
+.rot > span{grid-area:1/1;font-family:var(--serif);font-style:italic;font-weight:400;color:var(--or);letter-spacing:-.01em;transition:transform .7s var(--ease),opacity .5s ease}
+.rot > span:not(.on){opacity:0;transform:translateY(60%)}
+.hero-sub{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;margin-top:38px;align-items:end}
+.hero-sub .lede{font-size:clamp(17px,1.6vw,20px);color:var(--dim);max-width:44ch}
+.hero-sub .lede b{color:var(--fg)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.chip{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;color:var(--dim);background:rgba(23,18,13,.6)}
+@media (max-width:860px){.hero-sub{grid-template-columns:1fr}.chips{justify-content:flex-start}}
+
+/* ticker */
+.ticker{border-block:1px solid var(--line);background:var(--bg-1);overflow:hidden;white-space:nowrap}
+.ticker .row{display:inline-flex;gap:0;padding-block:14px}
+.tk{display:inline-flex;align-items:center;gap:10px;padding-inline:28px;border-right:1px solid var(--line);font-size:14px}
+.tk-a{color:var(--dim)}
+.tk-b{color:var(--fg);font-weight:600}
+.tk-c{color:var(--up);font-family:var(--mono);font-size:12px}
+
+/* numbers */
+.stats{padding-block:110px 40px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.stat{padding:30px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px;background:linear-gradient(180deg,var(--bg-1),transparent)}
+.stat:last-child{border-right:0}
+.stat .v{font-family:var(--display);font-size:clamp(38px,5vw,64px);font-weight:800;line-height:1}
+.stat .v small{font-family:var(--mono);font-size:14px;color:var(--or);margin-left:6px;font-weight:500}
+.stat .k{color:var(--dim);font-size:14px}
+@media (max-width:860px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* logos */
+.logos{padding-block:40px 20px}
+.marquee{overflow:hidden;margin-top:24px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mtrack{display:flex;gap:16px;width:max-content}
+.mtrack img{height:96px;width:170px;object-fit:cover;border-radius:16px;border:1px solid var(--line);transition:transform .4s var(--ease)}
+.mtrack img:hover{transform:translateY(-4px) rotate(-1deg)}
+
+/* section head */
+.sec{padding-block:120px 0}
+.sh{display:flex;flex-direction:column;gap:16px;margin-bottom:44px}
+.sh h2{font-size:clamp(38px,6.4vw,92px);font-weight:800}
+.sh p{color:var(--dim);max-width:60ch;font-size:17px}
+
+/* case reel */
+.reel{position:relative}
+.rtrack{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.is-h .reel{height:100svh;display:flex;align-items:center;overflow:hidden}
+.is-h .rtrack{display:flex;gap:22px;padding-left:max(16px,calc((100vw - 1200px)/2));padding-right:10vw;will-change:transform}
+.is-h .cs{width:min(470px,82vw);flex:0 0 auto}
+.cs{position:relative;background:linear-gradient(180deg,var(--bg-2),var(--bg-1));border:1px solid var(--line);border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:14px;cursor:pointer;
+  transition:border-color .4s ease,transform .5s var(--ease);isolation:isolate;overflow:hidden;min-height:520px}
+.cs::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s ease;background:radial-gradient(500px circle at var(--mx,50%) var(--my,0%),rgba(255,106,31,.18),transparent 60%)}
+.cs:hover{border-color:rgba(255,106,31,.6)}
+.cs:hover::before{opacity:1}
+.cs-top{display:flex;justify-content:space-between;align-items:center}
+.cs-i{color:var(--faint);font-size:13px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--or);border:1px solid rgba(255,106,31,.4);padding:4px 10px;border-radius:999px;width:max-content}
+.cs h3{font-size:clamp(28px,3vw,38px);font-weight:800;margin-top:6px}
+.cs-r{color:var(--or-2);font-family:var(--display);font-weight:500;font-size:16px;line-height:1.35}
+.cs-big{margin-top:auto;display:flex;flex-direction:column;gap:4px}
+.cs-big .n{font-family:var(--display);font-size:clamp(56px,6vw,84px);font-weight:900;color:var(--or);line-height:1;letter-spacing:-.03em}
+.cs-big .l{color:var(--dim);font-size:13px}
+.cs-res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding-top:14px}
+.cs-res div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cs-res .rv{font-weight:600;font-size:16px;color:var(--fg)}
+.cs-res .rl{font-size:11px;color:var(--dim);line-height:1.35}
+.cs-open{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);display:flex;align-items:center;gap:8px}
+.cs-open i{font-style:normal;color:var(--or);transition:transform .3s var(--ease)}
+.cs:hover .cs-open i{transform:translateX(6px)}
+.reel-hint{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:18px;letter-spacing:.08em}
+.is-h .reel-hint{position:absolute;bottom:32px;left:max(16px,calc((100vw - 1200px)/2))}
+.prog-h{position:absolute;left:max(16px,calc((100vw - 1200px)/2));right:max(16px,calc((100vw - 1200px)/2));bottom:24px;height:2px;background:var(--line);display:none}
+.is-h .prog-h{display:block}
+.prog-h span{display:block;height:100%;background:var(--or);transform-origin:left;transform:scaleX(0)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(8,6,4,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;justify-content:center;align-items:flex-start;overflow-y:auto;padding:calc(30px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) 40px max(12px,env(safe-area-inset-left,0px))}
+.mbox{position:relative;width:min(1000px,100%);background:var(--bg-1);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,4vw,48px);display:flex;flex-direction:column;gap:14px;animation:pop .5s var(--ease)}
+@keyframes pop{from{transform:translateY(30px) scale(.98);opacity:.001}to{transform:none;opacity:1}}
+.mx{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--bg-2);color:var(--fg);cursor:pointer;font-size:16px}
+.mbox h3{font-size:clamp(32px,4.4vw,56px);font-weight:800}
+.m-desc{color:var(--fg);max-width:62ch}
+.m-who{color:var(--faint);font-size:14px}
+.m-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:36px;margin-top:10px}
+.m-story h4{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--or);font-weight:500;margin:18px 0 8px}
+.m-story h4:first-child{margin-top:0}
+.pts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.pts li{position:relative;padding-left:24px}
+.pts li::before{content:"↗";position:absolute;left:0;color:var(--or);font-weight:700}
+.m-side .cs-res{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.m-side .cs-res div{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.m-side .cs-res .rv{font-size:20px;font-family:var(--display);font-weight:700}
+.m-shots{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.m-shots img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+.lbl{font-family:var(--mono);font-size:12px;color:var(--or);letter-spacing:.12em;text-transform:uppercase}
+.trend{margin:18px 0 0;display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:20px}
+.trend figcaption{color:var(--dim);font-size:14px}
+.chart{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:5px;height:220px;align-items:end}
+.col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:5px;min-width:0}
+.bar{width:100%;background:var(--line);border-radius:6px 6px 0 0}
+.bar.hot{background:linear-gradient(180deg,var(--or-2),var(--or));box-shadow:0 0 24px -6px var(--glow)}
+.bv{font-size:10px;white-space:nowrap}.bm{font-size:10px;color:var(--faint);white-space:nowrap}
+.fnote{font-size:12px;color:var(--faint)}
+@media (max-width:760px){.m-grid{grid-template-columns:1fr}.chart{gap:2px;height:170px}.bv,.bm{font-size:8px}}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:22px}
+.panel{background:var(--bg-1);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3vw,36px)}
+.field{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;padding-block:12px;border-bottom:1px dashed var(--line)}
+.field:last-child{border-bottom:0}
+.field label{font-size:14px;color:var(--dim)}
+.field output{font-family:var(--mono);font-weight:600;color:var(--fg)}
+.field input{grid-column:1/-1;width:100%;accent-color:var(--or);height:22px}
+.out h3{font-size:14px;font-family:var(--mono);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--or)}
+.steps{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.st{display:grid;grid-template-columns:150px 1fr 74px;gap:12px;align-items:center;font-size:14px;color:var(--dim)}
+.st .tr{height:12px;background:var(--bg-2);border-radius:999px;overflow:hidden}
+.st .tr span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--or-2),var(--or));border-radius:999px;transition:width .6s var(--ease)}
+.st .vv{font-family:var(--mono);font-weight:600;color:var(--fg);text-align:right}
+.verd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.verd div{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.verd .big{font-family:var(--display);font-size:clamp(26px,3vw,38px);font-weight:800;line-height:1.1}
+.verd small{display:block;color:var(--dim);font-size:13px;margin-top:4px}
+.pos{color:var(--up)}.neg{color:#FF5A4E}
+.calc-cta{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;color:var(--dim);font-size:14px}
+@media (max-width:900px){.calc{grid-template-columns:1fr}}
+@media (max-width:480px){.st{grid-template-columns:110px 1fr 60px}}
+
+/* beyond */
+.bgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px}
+.phone{background:#0A120E;border:1px solid #1F3A2B;border-radius:34px;padding:16px;max-width:360px;margin-inline:auto;box-shadow:0 30px 80px -40px rgba(74,222,128,.4)}
+.phone .bar0{display:flex;justify-content:space-between;font-size:12px;color:#8FB9A0;padding:4px 8px 12px}
+.msg{background:#11261B;border:1px solid #1F3A2B;border-radius:18px 18px 18px 4px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.msg .h{font-weight:700;display:flex;align-items:center;gap:8px}
+.msg .h i{width:8px;height:8px;border-radius:50%;background:var(--up)}
+.rr{display:flex;justify-content:space-between;gap:12px;color:#A9C9B6;border-bottom:1px dashed #1F3A2B;padding-bottom:6px}
+.rr .num{color:#EAF7EF}
+.vd{color:var(--up);font-weight:700;margin-top:4px}
+.typing{display:none;gap:4px;padding:12px 16px;background:#11261B;border-radius:18px;width:max-content}
+.typing span{width:7px;height:7px;border-radius:50%;background:#8FB9A0;animation:blink 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes blink{50%{opacity:.25}}
+.bcol{display:flex;flex-direction:column;gap:18px}
+.bc{background:var(--bg-1);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:10px}
+.bc .num{color:var(--or);font-size:13px}
+.bc h3{font-size:clamp(22px,2.4vw,30px);font-weight:700}
+.bc p{color:var(--dim)}
+@media (max-width:900px){.bgrid{grid-template-columns:1fr}}
+
+/* highlights */
+.inds{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.ind{border:1px solid rgba(255,106,31,.35);background:var(--or-soft);border-radius:999px;padding:8px 16px;font-size:15px;font-weight:600}
+.hls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.hl{background:var(--bg-1);border:1px solid var(--line);border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:10px}
+.hl h3{font-size:26px;font-weight:700}
+.hl-n{font-family:var(--display);font-size:clamp(56px,6vw,80px);font-weight:900;color:var(--or);line-height:1;letter-spacing:-.03em;margin-top:6px}
+.hl-t{color:var(--dim);font-size:13px}
+.hl-p{color:var(--fg);font-size:15px}
+.hl-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.hl-row div{display:flex;flex-direction:column;min-width:0}
+.hl-row .num{font-weight:600;font-size:15px}
+.hl-row small{color:var(--dim);font-size:11px;line-height:1.35}
+.hl details summary{cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--or);text-transform:uppercase;letter-spacing:.08em}
+.hl details img{width:100%;margin-top:10px;border-radius:12px;background:#fff}
+@media (max-width:860px){.hls{grid-template-columns:1fr}.hl-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* services + process */
+.svcs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.svc{border-top:2px solid var(--or);padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.svc h3{font-size:18px;font-weight:700}
+.svc p{color:var(--dim);font-size:14px}
+.proc{list-style:none;margin:60px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:s}
+.proc li{background:var(--bg-1);border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.proc .num{color:var(--or);font-size:13px}
+.proc h3{font-size:19px;font-weight:700}
+.proc p{color:var(--dim);font-size:14px}
+@media (max-width:1000px){.svcs{grid-template-columns:repeat(2,minmax(0,1fr))}.proc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.svcs,.proc{grid-template-columns:1fr}}
+
+/* final cta */
+.final{padding-block:140px 60px;text-align:center}
+.final h2{font-size:clamp(48px,11vw,170px);font-weight:900;line-height:.9;letter-spacing:-.04em}
+.final p{color:var(--dim);max-width:52ch;margin:26px auto 0}
+.final .ctas{justify-content:center}
+.wa{display:inline-flex;align-items:center;gap:12px;margin-top:20px;font-family:var(--mono);font-size:18px;color:var(--fg);user-select:all}
+footer{border-top:1px solid var(--line);padding-block:26px;color:var(--faint);font-size:13px}
+footer .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:40;pointer-events:none}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--or),var(--or-2));transform:scaleX(0);transform-origin:left}
+.cursor{position:fixed;left:0;top:0;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(255,106,31,.10),transparent 65%);transition:opacity .4s ease;opacity:0}
+@media (hover:hover){.cursor{opacity:1}}
+@media (prefers-reduced-motion:no-preference){
+  .tk-row-anim{animation:tick 45s linear infinite}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  .mtrack.anim{animation:tick 40s linear infinite}
+  .rv-up.pre{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .rv-up.pre.vis{opacity:1;transform:none}
+}
+
+.tms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.tms{grid-template-columns:1fr}}
+.tm{position:relative;margin:0;background:linear-gradient(180deg,var(--bg-2),var(--bg-1));border:1px solid var(--line);border-radius:28px;padding:30px 26px 26px;display:flex;flex-direction:column;gap:18px;overflow:hidden;transition:border-color .4s ease}
+.tm:hover{border-color:rgba(255,106,31,.5)}
+.tm-q{position:absolute;top:-28px;right:18px;font-family:var(--serif);font-size:170px;line-height:1;color:var(--or);opacity:.14;pointer-events:none}
+.tm-l{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+.vn{display:flex;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:8px 16px 8px 8px}
+.vn-b{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--or);display:grid;place-items:center;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s ease}
+.vn-b:hover{box-shadow:0 10px 30px -10px var(--glow);transform:scale(1.06)}
+.vn-b svg{width:20px;height:20px;fill:#140904}
+.vn .ic-pause{display:none}.vn.playing .ic-pause{display:block}.vn.playing .ic-play{display:none}
+.vn-w{flex:1;min-width:0;height:34px;display:flex;align-items:center;gap:2px;cursor:pointer}
+.vn-w i{flex:1;min-width:2px;border-radius:2px;background:var(--line);transition:background .2s ease}
+.vn-w i.on{background:var(--or)}
+.vn.playing .vn-w i.on:last-of-type{box-shadow:0 0 10px var(--glow)}
+.vn-t{flex:none;font-size:12px;color:var(--dim);min-width:34px;text-align:right}
+.vn.off{opacity:.55}.vn.off .vn-b{background:var(--line);cursor:default}.vn.off .vn-b svg{fill:var(--faint)}
+.tm figcaption{display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);padding-top:18px}
+.tm-a{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px;color:var(--or);background:var(--or-soft);border:1px solid rgba(255,106,31,.35)}
+.tm figcaption b{display:block;font-family:var(--display);font-weight:600;font-size:16px}
+.tm figcaption small{display:block;color:var(--dim);font-size:13px;line-height:1.4;margin-top:3px}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><span id="prog"></span></div>
+<div class="cursor" id="cur" aria-hidden="true"></div>
+
+<header class="nav g"><div class="in">
+  <a class="brand" href="#top"><img src="omar.jpg" alt="Omar Saleh" width="38" height="38"><span>Omar Saleh<small>PERFORMANCE MARKETER</small></span></a>
+  <nav class="nav-r"><a class="lnk" href="#work">Work</a><a class="lnk" href="#words">Reviews</a><a class="lnk" href="#calc">Calculator</a><a class="lnk" href="#services">Services</a><a class="btn" href="https://wa.me/201204368620" target="_blank" rel="noopener">Get in touch</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero g">
+  <canvas id="chart" aria-hidden="true"></canvas>
+  <div class="in">
+    <span class="avail"><i></i>Taking on new brands · Egypt &amp; the Gulf</span>
+    <h1><span class="line"><span>I turn ad spend</span></span><span class="line"><span>into <span class="rot" aria-live="polite"><span class="on">profit.</span><span>orders.</span><span>first millions.</span></span></span></span></h1>
+    <div class="hero-sub">
+      <div>
+        <p class="lede"><b>Omar Saleh, Performance Marketer.</b> I’ve helped 30+ brands grow their sales, and helped 3 of them go from zero to their first million.</p>
+        <div class="ctas"><a class="btn" href="https://wa.me/201204368620" target="_blank" rel="noopener">Message me on WhatsApp <span aria-hidden="true">↗</span></a><a class="btn ghost" href="#work">See the work</a></div>
+      </div>
+      <div class="chips"><span class="chip">🇪🇬 Egypt</span><span class="chip">🇸🇦 Saudi Arabia</span><span class="chip">🇦🇪 UAE</span><span class="chip">🇶🇦 Qatar</span><span class="chip">🇧🇭 Bahrain</span><span class="chip">🇴🇲 Oman</span><span class="chip">🇯🇴 Jordan</span><span class="chip">🇮🇶 Iraq</span><span class="chip">🇱🇾 Libya</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Results ticker"><div class="row tk-row"><span class="tk"><span class="tk-a">Saudi brand</span><span class="tk-b num">SAR 1.2M / month</span><span class=tk-c>▲ 4×</span></span><span class="tk"><span class="tk-a">Fashion</span><span class="tk-b num">EGP 32M net sales</span><span class=tk-c>▲ 2.5×</span></span><span class="tk"><span class="tk-a">Cosmetics</span><span class="tk-b num">8× sales vs. spend</span><span class=tk-c>▲ 56%</span></span><span class="tk"><span class="tk-a">Fitness</span><span class="tk-b num">4,279 new subscribers</span><span class=tk-c>▲ 90 days</span></span><span class="tk"><span class="tk-a">Niche brand</span><span class="tk-b num">31.7× ROAS</span></span><span class="tk"><span class="tk-a">Streetwear</span><span class="tk-b num">First EGP 1M</span><span class=tk-c>▲ 5 months</span></span><span class="tk"><span class="tk-a">Google</span><span class="tk-b num">1,880 conversions</span></span><span class="tk"><span class="tk-a">Industries</span><span class="tk-b num">17</span></span><span class="tk"><span class="tk-a">Countries</span><span class="tk-b num">9</span></span><span class="tk"><span class="tk-a">Saudi brand</span><span class="tk-b num">SAR 1.2M / month</span><span class=tk-c>▲ 4×</span></span><span class="tk"><span class="tk-a">Fashion</span><span class="tk-b num">EGP 32M net sales</span><span class=tk-c>▲ 2.5×</span></span><span class="tk"><span class="tk-a">Cosmetics</span><span class="tk-b num">8× sales vs. spend</span><span class=tk-c>▲ 56%</span></span><span class="tk"><span class="tk-a">Fitness</span><span class="tk-b num">4,279 new subscribers</span><span class=tk-c>▲ 90 days</span></span><span class="tk"><span class="tk-a">Niche brand</span><span class="tk-b num">31.7× ROAS</span></span><span class="tk"><span class="tk-a">Streetwear</span><span class="tk-b num">First EGP 1M</span><span class=tk-c>▲ 5 months</span></span><span class="tk"><span class="tk-a">Google</span><span class="tk-b num">1,880 conversions</span></span><span class="tk"><span class="tk-a">Industries</span><span class="tk-b num">17</span></span><span class="tk"><span class="tk-a">Countries</span><span class="tk-b num">9</span></span></div></div>
+
+<section class="stats g"><div class="in stats-grid">
+  <div class="stat"><span class="v num" data-c>40M+<small>EGP</small></span><span class="k">Ad spend managed</span></div><div class="stat"><span class="v num" data-c>30+</span><span class="k">Brands worked with</span></div><div class="stat"><span class="v num" data-c>9</span><span class="k">Countries</span></div><div class="stat"><span class="v num" data-c>2024</span><span class="k">Running ads since</span></div>
+</div></section>
+
+<section class="logos g"><div class="in"><p class="eyebrow">Brands I've worked with</p></div>
+  <div class="marquee"><div class="mtrack"><img src="logos/seven-secrets.jpg" alt="Seven Secrets" loading="lazy"><img src="logos/junior.jpg" alt="Junior" loading="lazy"><img src="logos/vinta.jpg" alt="Vinta Denim" loading="lazy"><img src="logos/biotrade.jpg" alt="Biotrade" loading="lazy"><img src="logos/truenesta.jpg" alt="Truenesta" loading="lazy"><img src="logos/chou.jpg" alt="Chou" loading="lazy"><img src="logos/berry-bloom.jpg" alt="Berry & Bloom" loading="lazy"><img src="logos/almasaudi.jpg" alt="Almasaudi" loading="lazy"><img src="logos/naba.jpg" alt="Naba" loading="lazy"><img src="logos/summit.jpg" alt="Summit Gym & Fitness" loading="lazy"><img src="logos/organic-farm.jpg" alt="Organic Farm" loading="lazy"><img src="logos/a3.jpg" alt="A3 Studios" loading="lazy"><img src="logos/dr-baby.jpg" alt="Dr. Baby" loading="lazy"><img src="logos/seven-secrets.jpg" alt="Seven Secrets" loading="lazy"><img src="logos/junior.jpg" alt="Junior" loading="lazy"><img src="logos/vinta.jpg" alt="Vinta Denim" loading="lazy"><img src="logos/biotrade.jpg" alt="Biotrade" loading="lazy"><img src="logos/truenesta.jpg" alt="Truenesta" loading="lazy"><img src="logos/chou.jpg" alt="Chou" loading="lazy"><img src="logos/berry-bloom.jpg" alt="Berry & Bloom" loading="lazy"><img src="logos/almasaudi.jpg" alt="Almasaudi" loading="lazy"><img src="logos/naba.jpg" alt="Naba" loading="lazy"><img src="logos/summit.jpg" alt="Summit Gym & Fitness" loading="lazy"><img src="logos/organic-farm.jpg" alt="Organic Farm" loading="lazy"><img src="logos/a3.jpg" alt="A3 Studios" loading="lazy"><img src="logos/dr-baby.jpg" alt="Dr. Baby" loading="lazy"></div></div>
+</section>
+
+<section class="sec" id="work">
+  <div class="g"><div class="in sh rv-up"><p class="eyebrow">Past work</p><h2>Case <em>studies</em></h2><p>Results from brands across 17 industries and 9 countries. Clients tend to stay: the first two accounts below ran with me for a full year. Every number is backed by screenshots from the ad account or the store.</p></div></div>
+  <div class="reel"><div class="rtrack g">
+      <article class="cs" data-open="m0" tabindex="0" role="button" aria-label="Open case: Breaking the Plateau">
+        <div class="cs-top"><span class="cs-i num">01</span><span class="tag">Fashion · Egypt</span></div>
+        <h3>Breaking the Plateau</h3>
+        <p class="cs-r">From EGP 1.6M to 4M in monthly sales</p>
+        <div class="cs-big"><span class="n num">32M</span><span class="l">EGP net sales · 35K+ orders · ROAS 9</span></div>
+        <div class="cs-res"><div><span class="rv num">1.6M → 4M</span><span class="rl">EGP monthly sales</span></div><div><span class="rv num">32M</span><span class="rl">EGP net sales</span></div><div><span class="rv num">500K</span><span class="rl">EGP spend in the peak month</span></div></div>
+        <span class="cs-open">Read the case <i>→</i></span>
+      </article>
+      <article class="cs" data-open="m1" tabindex="0" role="button" aria-label="Open case: Buy One, Sell Two">
+        <div class="cs-top"><span class="cs-i num">02</span><span class="tag">Cosmetics · Egypt</span></div>
+        <h3>Buy One, Sell Two</h3>
+        <p class="cs-r">Same discount, twice the items</p>
+        <div class="cs-big"><span class="n num">10.8M+</span><span class="l">EGP in sales · 15.5K+ orders · 8× return on ad spend</span></div>
+        <div class="cs-res"><div><span class="rv num">10.8M+</span><span class="rl">EGP total sales</span></div><div><span class="rv num">8×</span><span class="rl">sales vs. ad spend</span></div><div><span class="rv num">+56%</span><span class="rl">sales vs. the year before</span></div></div>
+        <span class="cs-open">Read the case <i>→</i></span>
+      </article>
+      <article class="cs" data-open="m2" tabindex="0" role="button" aria-label="Open case: The Coach Is the Ad">
+        <div class="cs-top"><span class="cs-i num">03</span><span class="tag">Fitness · online subscriptions</span></div>
+        <h3>The Coach Is the Ad</h3>
+        <p class="cs-r">4,000+ new subscribers in 3 months</p>
+        <div class="cs-big"><span class="n num">4,279</span><span class="l">new clients · 5,089 subscriptions in 90 days</span></div>
+        <div class="cs-res"><div><span class="rv num">~5.9M</span><span class="rl">EGP revenue from ads</span></div><div><span class="rv num">3.0</span><span class="rl">ROAS on the first payment</span></div><div><span class="rv num">~2M</span><span class="rl">EGP spend in 3 months</span></div></div>
+        <span class="cs-open">Read the case <i>→</i></span>
+      </article>
+      <article class="cs" data-open="m3" tabindex="0" role="button" aria-label="Open case: The Million Riyal Month">
+        <div class="cs-top"><span class="cs-i num">04</span><span class="tag">E-commerce · Saudi Arabia & GCC</span></div>
+        <h3>The Million Riyal Month</h3>
+        <p class="cs-r">A Saudi brand from SAR 200–300K to over 1M a month</p>
+        <div class="cs-big"><span class="n num">1.2M+</span><span class="l">SAR in sales in one month · 4,600+ orders</span></div>
+        <div class="cs-res"><div><span class="rv num">~4×</span><span class="rl">monthly sales, before vs. after</span></div><div><span class="rv num">~3.6×</span><span class="rl">sales vs. ad spend</span></div><div><span class="rv num">337K</span><span class="rl">SAR spend across 3 platforms</span></div></div>
+        <span class="cs-open">Read the case <i>→</i></span>
+      </article>
+      <article class="cs" data-open="m4" tabindex="0" role="button" aria-label="Open case: One Man Show">
+        <div class="cs-top"><span class="cs-i num">05</span><span class="tag">Streetwear · Egypt</span></div>
+        <h3>One Man Show</h3>
+        <p class="cs-r">From startup to the first million</p>
+        <div class="cs-big"><span class="n num">1.3M</span><span class="l">EGP in sales, 1M of it from June to October 2026</span></div>
+        <div class="cs-res"><div><span class="rv num">294K</span><span class="rl">EGP in the best month</span></div><div><span class="rv num">8.7</span><span class="rl">ROAS in October</span></div><div><span class="rv num">6.4×</span><span class="rl">return on all spend since day one</span></div></div>
+        <span class="cs-open">Read the case <i>→</i></span>
+      </article></div><p class="reel-hint g">TAP A CASE TO OPEN IT</p><div class="prog-h"><span id="hprog"></span></div></div>
+</section>
+
+<section class="sec g" id="words"><div class="in">
+  <div class="sh rv-up"><p class="eyebrow">In their words</p><h2>From people I've <em>worked with</em></h2><p>Managers, team leads and founders. Hit play and hear it straight from them.</p></div>
+  <div class="tms"><figure class="tm rv-up"><span class="tm-q" aria-hidden="true">&ldquo;</span>
+  <p class="tm-l">Voice note</p><div class="vn" data-src="voice/safwat.mp3"><button class="vn-b" type="button" aria-label="Play voice note from Mohamed Safwat"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-play" d="M8 5v14l11-7z"/><path class="ic-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="vn-w" aria-hidden="true"><i style="height:81%"></i><i style="height:69%"></i><i style="height:86%"></i><i style="height:88%"></i><i style="height:78%"></i><i style="height:96%"></i><i style="height:82%"></i><i style="height:100%"></i><i style="height:80%"></i><i style="height:86%"></i><i style="height:87%"></i><i style="height:89%"></i><i style="height:93%"></i><i style="height:91%"></i><i style="height:80%"></i><i style="height:85%"></i><i style="height:84%"></i><i style="height:85%"></i><i style="height:73%"></i><i style="height:84%"></i><i style="height:93%"></i><i style="height:92%"></i><i style="height:76%"></i><i style="height:91%"></i><i style="height:74%"></i><i style="height:83%"></i><i style="height:90%"></i><i style="height:66%"></i><i style="height:80%"></i><i style="height:82%"></i><i style="height:91%"></i><i style="height:91%"></i><i style="height:80%"></i><i style="height:85%"></i><i style="height:86%"></i><i style="height:82%"></i><i style="height:78%"></i><i style="height:83%"></i><i style="height:82%"></i><i style="height:95%"></i><i style="height:76%"></i><i style="height:89%"></i><i style="height:80%"></i><i style="height:93%"></i><i style="height:78%"></i><i style="height:84%"></i><i style="height:93%"></i><i style="height:74%"></i></div><span class="vn-t num">0:00</span></div>
+  <figcaption><span class="tm-a">MS</span><span><b>Mohamed Safwat</b><small>Performance Marketing Manager · Makasb</small></span></figcaption></figure><figure class="tm rv-up"><span class="tm-q" aria-hidden="true">&ldquo;</span>
+  <p class="tm-l">Voice note</p><div class="vn" data-src="voice/shiama.mp3"><button class="vn-b" type="button" aria-label="Play voice note from Shiama Osama"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-play" d="M8 5v14l11-7z"/><path class="ic-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="vn-w" aria-hidden="true"><i style="height:10%"></i><i style="height:92%"></i><i style="height:98%"></i><i style="height:75%"></i><i style="height:80%"></i><i style="height:91%"></i><i style="height:93%"></i><i style="height:75%"></i><i style="height:93%"></i><i style="height:75%"></i><i style="height:82%"></i><i style="height:97%"></i><i style="height:78%"></i><i style="height:85%"></i><i style="height:63%"></i><i style="height:57%"></i><i style="height:76%"></i><i style="height:84%"></i><i style="height:73%"></i><i style="height:74%"></i><i style="height:85%"></i><i style="height:60%"></i><i style="height:49%"></i><i style="height:91%"></i><i style="height:84%"></i><i style="height:82%"></i><i style="height:80%"></i><i style="height:56%"></i><i style="height:78%"></i><i style="height:70%"></i><i style="height:87%"></i><i style="height:50%"></i><i style="height:67%"></i><i style="height:71%"></i><i style="height:57%"></i><i style="height:93%"></i><i style="height:91%"></i><i style="height:68%"></i><i style="height:87%"></i><i style="height:58%"></i><i style="height:41%"></i><i style="height:59%"></i><i style="height:88%"></i><i style="height:86%"></i><i style="height:85%"></i><i style="height:100%"></i><i style="height:59%"></i><i style="height:50%"></i></div><span class="vn-t num">0:00</span></div>
+  <figcaption><span class="tm-a">SO</span><span><b>Shiama Osama</b><small>Senior Team Leader · B Mark Agency</small></span></figcaption></figure><figure class="tm rv-up"><span class="tm-q" aria-hidden="true">&ldquo;</span>
+  <p class="tm-l">Voice note</p><div class="vn off"><span class="vn-b" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><div class="vn-w" aria-hidden="true"><i style="height:48%"></i><i style="height:20%"></i><i style="height:50%"></i><i style="height:40%"></i><i style="height:77%"></i><i style="height:36%"></i><i style="height:27%"></i><i style="height:18%"></i><i style="height:71%"></i><i style="height:28%"></i><i style="height:64%"></i><i style="height:82%"></i><i style="height:41%"></i><i style="height:45%"></i><i style="height:24%"></i><i style="height:28%"></i><i style="height:76%"></i><i style="height:39%"></i><i style="height:58%"></i><i style="height:34%"></i><i style="height:73%"></i><i style="height:61%"></i><i style="height:52%"></i><i style="height:64%"></i><i style="height:86%"></i><i style="height:45%"></i><i style="height:77%"></i><i style="height:39%"></i><i style="height:54%"></i><i style="height:64%"></i><i style="height:64%"></i><i style="height:74%"></i><i style="height:58%"></i><i style="height:36%"></i><i style="height:56%"></i><i style="height:62%"></i><i style="height:49%"></i><i style="height:33%"></i><i style="height:66%"></i><i style="height:66%"></i><i style="height:53%"></i><i style="height:53%"></i><i style="height:42%"></i><i style="height:48%"></i><i style="height:19%"></i><i style="height:63%"></i><i style="height:64%"></i><i style="height:59%"></i></div><span class="vn-t num">soon</span></div>
+  <figcaption><span class="tm-a">AY</span><span><b>Ahmed Yousry</b><small>Founder · A3 Studios</small></span></figcaption></figure></div>
+</div></section>
+
+<section class="sec g" id="calc"><div class="in">
+  <div class="sh rv-up"><p class="eyebrow">Try it</p><h2>What does an order <em>really</em> cost?</h2><p>With cash on delivery, the number in Ads Manager isn't the real cost. Move the sliders with your own numbers and see what an order costs once it's delivered.</p></div>
+  <div class="calc">
+    <div class="panel" id="inputs">
+      <div class="field"><label for="i-cpa">Cost per order in Ads Manager</label><output id="o-cpa">EGP 116</output><input id="i-cpa" type="range" min="20" max="600" step="1" value="116"></div>
+      <div class="field"><label for="i-tax">Ad tax / VAT</label><output id="o-tax">14%</output><input id="i-tax" type="range" min="0" max="20" step="1" value="14"></div>
+      <div class="field"><label for="i-conf">Orders confirmed</label><output id="o-conf">80%</output><input id="i-conf" type="range" min="40" max="100" step="1" value="80"></div>
+      <div class="field"><label for="i-del">Confirmed orders delivered</label><output id="o-del">80%</output><input id="i-del" type="range" min="40" max="100" step="1" value="80"></div>
+      <div class="field"><label for="i-ret">Shipping cost per return</label><output id="o-ret">EGP 85</output><input id="i-ret" type="range" min="0" max="200" step="1" value="85"></div>
+      <div class="field"><label for="i-price">Selling price</label><output id="o-price">EGP 840</output><input id="i-price" type="range" min="100" max="3000" step="10" value="840"></div>
+      <div class="field"><label for="i-cogs">Product cost</label><output id="o-cogs">EGP 460</output><input id="i-cogs" type="range" min="0" max="2000" step="10" value="460"></div>
+    </div>
+    <div class="panel out">
+      <h3>Cost per order, step by step</h3>
+      <div class="steps" id="steps"></div>
+      <div class="verd">
+        <div><span class="big num" id="v-real">EGP 229</span><small>real cost per delivered order</small></div>
+        <div><span class="big num" id="v-profit">EGP 151</span><small>profit per delivered order</small></div>
+        <div><span class="big num" id="v-be">4.2×</span><small>break-even ROAS in Ads Manager</small></div>
+        <div><span class="big num" id="v-x">2.0×</span><small>how much more an order really costs</small></div>
+      </div>
+      <div class="calc-cta"><span>Want this calculated for you every morning?</span><a class="btn" href="https://wa.me/201204368620" target="_blank" rel="noopener">Let's talk</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec g"><div class="in">
+  <div class="sh rv-up"><p class="eyebrow">Beyond the ad account</p><h2>More than <em>ads</em></h2><p>What you get when we work together.</p></div>
+  <div class="bgrid">
+    <div class="bc"><span class="num">01</span><h3>A daily profit report</h3><p>Every morning you get yesterday's numbers in one message: spend with tax, orders, sales, real cost per order, and whether the ads made or lost money. I calculate it on what actually reaches the customer, not on what the ad dashboard says.</p>
+      <div class="phone" id="phone"><div class="bar0"><span>WhatsApp · Omar</span><span>9:40 AM</span></div>
+        <div class="typing" id="typing"><span></span><span></span><span></span></div>
+        <div class="msg" id="msg"><div class="h"><i></i>Yesterday · Nov 18</div><div class="rr"><span>Spend incl. tax</span><span class="num">EGP 777</span></div><div class="rr"><span>Orders</span><span class="num">14</span></div><div class="rr"><span>Sales</span><span class="num">EGP 15,263</span></div><div class="rr"><span>Real cost per order</span><span class="num">EGP 55</span></div><div class="rr"><span>Est. profit</span><span class="num">EGP 2,276</span></div><div class="vd">Profitable ✅ · Scale up</div></div>
+      </div>
+    </div>
+    <div class="bcol">
+      <div class="bc"><span class="num">02</span><h3>A partner in the business, not just the ads</h3><p>We work on the business together: pricing, offers, bundles, order value, product launches and stock planning. If something outside the ads is holding sales back, we fix that too.</p></div>
+      <div class="bc"><span class="num">03</span><h3>My network, at your service</h3><p>Need a designer, photographer, developer or anyone else? I can connect you with people I trust in almost any field. I also source, brief and contract UGC creators for you.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec g"><div class="in">
+  <div class="sh rv-up"><p class="eyebrow">More work</p><h2>Work across different <em>industries</em></h2><p>I've run ads for brands in 17 industries:</p></div>
+  <div class="inds"><span class="ind">Fashion</span><span class="ind">Cosmetics</span><span class="ind">Beauty salons</span><span class="ind">Medical clinics</span><span class="ind">Padel</span><span class="ind">Kidswear</span><span class="ind">Modest wear</span><span class="ind">Footwear</span><span class="ind">Streetwear</span><span class="ind">Home appliances</span><span class="ind">Gym & fitness</span><span class="ind">Supplements</span><span class="ind">Natural & organic food</span><span class="ind">SaaS</span><span class="ind">Online courses</span><span class="ind">Coaching</span><span class="ind">Fabrics & textiles</span></div>
+  <div class="hls">
+      <article class="hl">
+        <p class="tag">Premium brand · niche market</p>
+        <h3>Niche market, low budget</h3>
+        <span class="hl-n num">31.7×</span>
+        <p class="hl-t">ROAS in May 2025</p>
+        <p class="hl-p">One campaign and a few well-chosen creatives. The client set the budget and didn't want to scale it.</p>
+        <div class="hl-row"><div><span class="num">6,742</span><small>EGP spend</small></div><div><span class="num">~214K</span><small>EGP sales</small></div><div><span class="num">342</span><small>orders</small></div><div><span class="num">19.7</span><small>EGP per order</small></div></div>
+        <details><summary>Screenshots</summary><img src="shots/niche_meta.jpg" alt="Screenshot" loading="lazy"></details>
+      </article>
+      <article class="hl">
+        <p class="tag">Dropshipping · single product</p>
+        <h3>Dropshipping & single product</h3>
+        <span class="hl-n num">1,088</span>
+        <p class="hl-t">ads tested to find the winners</p>
+        <p class="hl-p">In dropshipping there's no brand name to lean on. The product has to win people over in three seconds. I tested over a thousand ads, and the best ones ran under $2 per order.</p>
+        <div class="hl-row"><div><span class="num">$10.2K+</span><small>ad spend</small></div><div><span class="num">1.75M</span><small>people reached</small></div><div><span class="num">$1.45</span><small>lowest cost per order</small></div><div><span class="num">4.4–8.6</span><small>ROAS on top ads</small></div></div>
+        <details><summary>Screenshots</summary><img src="shots/dropship_meta.jpg" alt="Screenshot" loading="lazy"></details>
+      </article>
+      <article class="hl">
+        <p class="tag">Donations · Saudi Arabia & GCC</p>
+        <h3>Donations</h3>
+        <span class="hl-n num">~491K</span>
+        <p class="hl-t">SAR in sales, October 2026</p>
+        <p class="hl-p">A donations platform with 80 campaigns across Saudi Arabia and the Gulf. Each market has its own campaigns, winners move to a Winners campaign, and partnership ads run with influencers.</p>
+        <div class="hl-row"><div><span class="num">155K</span><small>SAR spend</small></div><div><span class="num">3.16</span><small>account ROAS</small></div><div><span class="num">5.9</span><small>best campaign</small></div><div><span class="num">864K</span><small>people reached</small></div></div>
+        <details><summary>Screenshots</summary><img src="shots/gcc2_meta.jpg" alt="Screenshot" loading="lazy"></details>
+      </article>
+      <article class="hl">
+        <p class="tag">Search & Performance Max · Egypt</p>
+        <h3>Google Ads</h3>
+        <span class="hl-n num">1,880</span>
+        <p class="hl-t">conversions from Google, Dec 2025 – Nov 2026</p>
+        <p class="hl-p">We switch Google on for peak seasons, like new collection drops, and pause it in between. Search and Performance Max catch people who are already looking.</p>
+        <div class="hl-row"><div><span class="num">136K</span><small>EGP spend</small></div><div><span class="num">1,880</span><small>conversions</small></div><div><span class="num">72</span><small>EGP per conversion</small></div><div><span class="num">Search + PMax</span><small>campaign types</small></div></div>
+        <details><summary>Screenshots</summary><img src="shots/google.png" alt="Screenshot" loading="lazy"></details>
+      </article></div>
+</div></section>
+
+<section class="sec g" id="services"><div class="in">
+  <div class="sh rv-up"><p class="eyebrow">Services</p><h2>What I can <em>help</em> with</h2></div>
+  <div class="svcs"><div class="svc"><h3>Meta ads</h3><p>Account structure, testing and step-by-step scaling.</p></div><div class="svc"><h3>TikTok & Snapchat</h3><p>Spark and partnership ads with influencers, especially in the Gulf.</p></div><div class="svc"><h3>Google Ads</h3><p>Search and Performance Max that catch people already looking for what you sell, switched on for peak seasons.</p></div><div class="svc"><h3>Creative</h3><p>UGC briefs, several hooks per video, and spotting when a creative is worn out.</p></div><div class="svc"><h3>Shopify & numbers</h3><p>Conversion rate, order value and a daily profit report.</p></div></div>
+  <ol class="proc"><li><span class="num">01</span><h3>Full audit</h3><p>Your website, ad account and business, to find where sales and money are leaking.</p></li><li><span class="num">02</span><h3>Break-even & target</h3><p>We calculate your break-even and the ROAS you actually need, then agree on a target together.</p></li><li><span class="num">03</span><h3>Content testing</h3><p>New creatives, hooks and offers tested on a set budget.</p></li><li><span class="num">04</span><h3>Scaling</h3><p>Winners scale step by step, with the daily report and a weekly review.</p></li></ol>
+</div></section>
+
+<section class="final g" id="contact"><div class="in">
+  <p class="eyebrow" style="justify-content:center">Let's talk</p>
+  <h2>Let's make next month<br>your <em>best</em> one.</h2>
+  <p>Send me the brand name, where you sell and roughly what you spend a month. We'll have a short call, no commitment.</p>
+  <div class="ctas" style="margin-top:30px"><a class="btn" href="https://wa.me/201204368620" target="_blank" rel="noopener">Open WhatsApp ↗</a><button class="btn ghost" id="copy" type="button">Copy number</button></div>
+  <span class="wa" id="wa">+20 120 436 8620</span> <span id="copied" class="fnote" hidden>Copied</span>
+</div></section>
+</main>
+<footer class="g"><div class="in"><span>Omar Saleh Mahmoud · Performance Marketer</span><span class="num">Meta · TikTok · Snapchat · Google · Shopify</span></div></footer>
+
+
+    <div class="modal" id="m0" hidden role="dialog" aria-modal="true" aria-labelledby="m0h">
+      <div class="mbox">
+        <button class="mx" type="button" aria-label="Close">✕</button>
+        <span class="tag">Fashion · Egypt</span>
+        <h3 id="m0h">Breaking the Plateau</h3>
+        <p class="cs-r">From EGP 1.6M to 4M in monthly sales</p>
+        <p class="m-desc">A well-known Egyptian fashion brand, stuck at EGP 1.6M a month. I rebuilt the ad setup and scaled it to ~4M without losing efficiency.</p>
+        <p class="m-who">Fashion brand · Egypt · 12 months (Jun 2025 – Jul 2026)</p>
+        <div class="m-grid">
+          <div class="m-story"><h4>The problem</h4><ul class="pts"><li>Frequency was high, and the account kept reaching the same people</li></ul><h4>Two accounts, two jobs</h4><ul class="pts"><li><b>Account 1, catalog:</b> kept the catalog ads running, but split the catalog into product sets (summer, winter, autumn, going-out, loungewear) and scaled each one on its own</li><li><b>Account 2, creative:</b> a second account to test and scale statics and UGC. It matched the catalog account's results</li></ul><h4>Scaling</h4><ul class="pts"><li>Expanded with Advantage+ audiences, interest audiences and lookalikes</li><li>Peak month: EGP 500K in ad spend</li></ul><h4>On the website</h4><ul class="pts"><li>Reshot the product images so each one works as an ad on its own, which lifted catalog performance</li><li>Added a cross-selling app to raise order value</li></ul></div>
+          <div class="m-side"><div class="cs-big"><span class="n num">32M</span><span class="l">EGP net sales · 35K+ orders · ROAS 9</span></div><div class="cs-res"><div><span class="rv num">1.6M → 4M</span><span class="rl">EGP monthly sales</span></div><div><span class="rv num">32M</span><span class="rl">EGP net sales</span></div><div><span class="rv num">500K</span><span class="rl">EGP spend in the peak month</span></div><div><span class="rv num">9.0</span><span class="rl">Meta ROAS while scaling</span></div></div></div>
+        </div>
+        
+        <div class="m-shots"><p class="lbl">Screenshots</p><img src="shots/fashion_shopify.jpg" alt="Screenshot" loading="lazy"><img src="shots/fashion_meta1.jpg" alt="Screenshot" loading="lazy"><img src="shots/fashion_meta2.jpg" alt="Screenshot" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="modal" id="m1" hidden role="dialog" aria-modal="true" aria-labelledby="m1h">
+      <div class="mbox">
+        <button class="mx" type="button" aria-label="Close">✕</button>
+        <span class="tag">Cosmetics · Egypt</span>
+        <h3 id="m1h">Buy One, Sell Two</h3>
+        <p class="cs-r">Same discount, twice the items</p>
+        <p class="m-desc">An Egyptian cosmetics brand with unstable results. I rebuilt the offers and the funnel, and turned it into EGP 10.8M in sales at 8× return.</p>
+        <p class="m-who">Cosmetics brand · Egypt · 12 months (Jun 2025 – Jul 2026)</p>
+        <div class="m-grid">
+          <div class="m-story"><h4>The problem</h4><ul class="pts"><li>Results were unstable and swung heavily between campaigns</li></ul><h4>Offers that raise order value</h4><ul class="pts"><li>Changed “25% off each item” to “buy one, get the second at 50% off”. The same discount, but only if you buy two</li><li>A discount that grows with the basket: 15% on one item, 20% on two, 30% on three</li></ul><h4>Creative</h4><ul class="pts"><li>Worked with the content and design teams on new creative direction</li><li>Brought in UGC as a main ad format</li></ul><h4>Funnel and testing</h4><ul class="pts"><li>Separate campaigns for cold audiences, the middle of the funnel and retargeting</li><li>727 campaigns tested, winners moved to scaling</li></ul></div>
+          <div class="m-side"><div class="cs-big"><span class="n num">10.8M+</span><span class="l">EGP in sales · 15.5K+ orders · 8× return on ad spend</span></div><div class="cs-res"><div><span class="rv num">10.8M+</span><span class="rl">EGP total sales</span></div><div><span class="rv num">8×</span><span class="rl">sales vs. ad spend</span></div><div><span class="rv num">+56%</span><span class="rl">sales vs. the year before</span></div><div><span class="rv num">1.61%</span><span class="rl">conversion rate, up 8%</span></div></div></div>
+        </div>
+        
+        <div class="m-shots"><p class="lbl">Screenshots</p><img src="shots/cosmetics_shopify.jpg" alt="Screenshot" loading="lazy"><img src="shots/cosmetics_meta.jpg" alt="Screenshot" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="modal" id="m2" hidden role="dialog" aria-modal="true" aria-labelledby="m2h">
+      <div class="mbox">
+        <button class="mx" type="button" aria-label="Close">✕</button>
+        <span class="tag">Fitness · online subscriptions</span>
+        <h3 id="m2h">The Coach Is the Ad</h3>
+        <p class="cs-r">4,000+ new subscribers in 3 months</p>
+        <p class="m-desc">An online training and diet platform. I built the ads around the coach and clear offers, and optimized for paid subscriptions, not clicks.</p>
+        <p class="m-who">Online training and diet platform · Aug – Oct 2026</p>
+        <div class="m-grid">
+          <div class="m-story"><h4>Creative</h4><ul class="pts"><li>Coach-led videos that open with a problem the audience knows well</li><li>Promise and transformation videos as the main angle</li><li>Offer images with the price up front</li></ul><h4>Optimization</h4><ul class="pts"><li>Campaigns optimized for confirmed subscriptions, not checkout clicks</li><li>Each format placed where it works best in the funnel</li></ul><h4>Revenue</h4><ul class="pts"><li>Average subscription: EGP 1,473</li><li>About 19% of subscriptions were renewals, so the real return is higher than the first payment</li></ul></div>
+          <div class="m-side"><div class="cs-big"><span class="n num">4,279</span><span class="l">new clients · 5,089 subscriptions in 90 days</span></div><div class="cs-res"><div><span class="rv num">~5.9M</span><span class="rl">EGP revenue from ads</span></div><div><span class="rv num">3.0</span><span class="rl">ROAS on the first payment</span></div><div><span class="rv num">~2M</span><span class="rl">EGP spend in 3 months</span></div><div><span class="rv num">3,979</span><span class="rl">confirmed subscriptions from ads</span></div></div></div>
+        </div>
+        
+        <div class="m-shots"><p class="lbl">Screenshots</p><img src="shots/fitness_meta.jpg" alt="Screenshot" loading="lazy"><img src="shots/fitness_platform.jpg" alt="Screenshot" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="modal" id="m3" hidden role="dialog" aria-modal="true" aria-labelledby="m3h">
+      <div class="mbox">
+        <button class="mx" type="button" aria-label="Close">✕</button>
+        <span class="tag">E-commerce · Saudi Arabia & GCC</span>
+        <h3 id="m3h">The Million Riyal Month</h3>
+        <p class="cs-r">A Saudi brand from SAR 200–300K to over 1M a month</p>
+        <p class="m-desc">Sells on Shopify and Salla, with ads on Meta, TikTok and Snapchat.</p>
+        <p class="m-who">Shopify and Salla · Oct 19 – Nov 18, 2026</p>
+        <div class="m-grid">
+          <div class="m-story"><h4>Follow the money</h4><ul class="pts"><li>Measured each platform on its own: Meta 3.06, TikTok 2.56, Snapchat 2.11</li><li>Moved the budget to Meta and cut back the weaker platforms</li></ul><h4>Testing → Scaling</h4><ul class="pts"><li>Every new creative starts in a testing campaign; winners get their own ad set in scaling</li><li>Scaled winners across broad, interest and lookalike audiences</li><li>Brought back an old creative the client already had. It ended up driving 30%+ of sales</li></ul><h4>Market by market</h4><ul class="pts"><li>Separate campaigns for Saudi Arabia and the rest of the GCC</li><li>A dedicated campaign for the strongest Gulf markets, like Qatar and the UAE</li></ul><h4>Order value</h4><ul class="pts"><li>Added bundles that raised the average order value</li></ul><h4>When demand drops</h4><ul class="pts"><li>Partnership ads with Gulf influencers</li><li>New angles tested mid-month and around White Friday, when buying slows down</li></ul></div>
+          <div class="m-side"><div class="cs-big"><span class="n num">1.2M+</span><span class="l">SAR in sales in one month · 4,600+ orders</span></div><div class="cs-res"><div><span class="rv num">~4×</span><span class="rl">monthly sales, before vs. after</span></div><div><span class="rv num">~3.6×</span><span class="rl">sales vs. ad spend</span></div><div><span class="rv num">337K</span><span class="rl">SAR spend across 3 platforms</span></div><div><span class="rv num">3.06</span><span class="rl">Meta ROAS on SAR 242K</span></div></div></div>
+        </div>
+        
+        <div class="m-shots"><p class="lbl">Screenshots</p><img src="shots/gcc1_meta.jpg" alt="Screenshot" loading="lazy"><img src="shots/gcc1_tiktok.jpg" alt="Screenshot" loading="lazy"><img src="shots/gcc1_snap.jpg" alt="Screenshot" loading="lazy"><img src="shots/gcc1_shopify.jpg" alt="Screenshot" loading="lazy"><img src="shots/gcc1_salla.jpg" alt="Screenshot" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="modal" id="m4" hidden role="dialog" aria-modal="true" aria-labelledby="m4h">
+      <div class="mbox">
+        <button class="mx" type="button" aria-label="Close">✕</button>
+        <span class="tag">Streetwear · Egypt</span>
+        <h3 id="m4h">One Man Show</h3>
+        <p class="cs-r">From startup to the first million</p>
+        <p class="m-desc">A streetwear startup. The website, the shoots, the creators and the ads, all handled by me.</p>
+        <p class="m-who">Egyptian streetwear startup · cash on delivery</p>
+        <div class="m-grid">
+          <div class="m-story"><h4>Building it</h4><ul class="pts"><li>Built the Shopify store from scratch</li><li>Ran the product shoots</li><li>Picked, briefed and paid the UGC creators</li></ul><h4>Conversion</h4><ul class="pts"><li>Rewrote product names and descriptions to answer fabric and fit questions</li><li>Size chart, cart upsell and free shipping on 2 items</li><li>Conversion rate around 3%</li></ul><h4>Ads and timing</h4><ul class="pts"><li>Found the right product, audience and creative, then scaled</li><li>Summer collection: EGP 605K in 3 months</li><li>Launched winter ahead of competitors; October became the best month</li></ul><h4>The real numbers</h4><ul class="pts"><li>A daily profit report with Meta tax, confirmation, delivery and returns</li></ul></div>
+          <div class="m-side"><div class="cs-big"><span class="n num">1.3M</span><span class="l">EGP in sales, 1M of it from June to October 2026</span></div><div class="cs-res"><div><span class="rv num">294K</span><span class="rl">EGP in the best month</span></div><div><span class="rv num">8.7</span><span class="rl">ROAS in October</span></div><div><span class="rv num">6.4×</span><span class="rl">return on all spend since day one</span></div><div><span class="rv num">6% → 17%</span><span class="rl">customers who came back</span></div></div></div>
+        </div>
+        <figure class="trend"><figcaption>Monthly sales on Shopify (EGP thousands)</figcaption><div class="chart"><div class="col"><span class="bv num"></span><div class="bar" style="height:1.5%"></div><span class="bm">Oct 25</span></div><div class="col"><span class="bv num"></span><div class="bar" style="height:1.5%"></div><span class="bm">Nov</span></div><div class="col"><span class="bv num"></span><div class="bar" style="height:1.5%"></div><span class="bm">Dec</span></div><div class="col"><span class="bv num"></span><div class="bar" style="height:6.1%"></div><span class="bm">Jan 26</span></div><div class="col"><span class="bv num"></span><div class="bar" style="height:9.4%"></div><span class="bm">Feb</span></div><div class="col"><span class="bv num"></span><div class="bar" style="height:7.0%"></div><span class="bm">Mar</span></div><div class="col"><span class="bv num"></span><div class="bar" style="height:1.5%"></div><span class="bm">Apr</span></div><div class="col"><span class="bv num"></span><div class="bar" style="height:2.3%"></div><span class="bm">May</span></div><div class="col"><span class="bv num">96K</span><div class="bar hot" style="height:32.7%"></div><span class="bm">Jun</span></div><div class="col"><span class="bv num">281K</span><div class="bar hot" style="height:95.6%"></div><span class="bm">Jul</span></div><div class="col"><span class="bv num">228K</span><div class="bar hot" style="height:77.3%"></div><span class="bm">Aug</span></div><div class="col"><span class="bv num">109K</span><div class="bar hot" style="height:37.2%"></div><span class="bm">Sep</span></div><div class="col"><span class="bv num">294K</span><div class="bar hot" style="height:100.0%"></div><span class="bm">Oct</span></div><div class="col"><span class="bv num">211K</span><div class="bar hot" style="height:71.7%"></div><span class="bm">Nov*</span></div></div><p class="fnote">* November up to the 18th. Sales from Shopify, ROAS from Meta Ads Manager.</p></figure>
+        
+      </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+
+/* copy */
+var cp=$('#copy'); if(cp) cp.addEventListener('click',function(){var t=$('#wa').textContent.trim();function sel(){var r=document.createRange();r.selectNodeContents($('#wa'));var s=getSelection();s.removeAllRanges();s.addRange(r)}try{navigator.clipboard.writeText(t).then(function(){$('#copied').hidden=false;setTimeout(function(){$('#copied').hidden=true},1800)},sel)}catch(e){sel()}});
+
+/* modals */
+var lastFocus=null;
+function openM(id){var m=document.getElementById(id);if(!m)return;lastFocus=document.activeElement;m.hidden=false;document.documentElement.style.overflow='hidden';if(window.__lenis)window.__lenis.stop();m.querySelector('.mx').focus();countIn(m)}
+function closeM(m){m.hidden=true;document.documentElement.style.overflow='';if(window.__lenis)window.__lenis.start();if(lastFocus)lastFocus.focus()}
+$$('.cs').forEach(function(c){c.addEventListener('click',function(){openM(c.dataset.open)});c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openM(c.dataset.open)}});
+  c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+$$('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('mx'))closeM(m)})});
+addEventListener('keydown',function(e){if(e.key==='Escape'){var m=$('.modal:not([hidden])');if(m)closeM(m)}});
+
+/* calculator */
+function fmt(n){return 'EGP '+Math.round(n).toLocaleString('en-US')}
+function calc(){
+  var cpa=+$('#i-cpa').value,tax=+$('#i-tax').value/100,c=+$('#i-conf').value/100,d=+$('#i-del').value/100,r=+$('#i-ret').value,p=+$('#i-price').value,g=+$('#i-cogs').value;
+  $('#o-cpa').textContent=fmt(cpa);$('#o-tax').textContent=Math.round(tax*100)+'%';$('#o-conf').textContent=Math.round(c*100)+'%';$('#o-del').textContent=Math.round(d*100)+'%';$('#o-ret').textContent=fmt(r);$('#o-price').textContent=fmt(p);$('#o-cogs').textContent=fmt(g);
+  var s1=cpa,s2=cpa*(1+tax),s3=s2/c,s4=s2/(c*d),s5=s4+((1-d)/d)*r;
+  var rows=[['In Ads Manager',s1],['+ tax',s2],['After confirmation',s3],['After delivery',s4],['+ returns',s5]];
+  var mx=Math.max(s5,1);
+  $('#steps').innerHTML=rows.map(function(x){return '<div class="st"><span>'+x[0]+'</span><div class="tr"><span style="width:'+(x[1]/mx*100).toFixed(1)+'%"></span></div><span class="vv num">'+Math.round(x[1]).toLocaleString('en-US')+'</span></div>'}).join('');
+  var profit=p-g-s5; var allowed=(p-g-((1-d)/d)*r)*c*d/(1+tax);
+  $('#v-real').textContent=fmt(s5);
+  var vp=$('#v-profit');vp.textContent=(profit<0?'−':'')+fmt(Math.abs(profit));vp.className='big num '+(profit>=0?'pos':'neg');
+  $('#v-be').textContent=allowed>0?(p/allowed).toFixed(1)+'×':'n/a';
+  $('#v-x').textContent=(s5/cpa).toFixed(1)+'×';
+}
+$$('#inputs input').forEach(function(i){i.addEventListener('input',calc)}); calc();
+
+/* progress + nav */
+var prog=$('#prog');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';document.documentElement.classList.toggle('scrolled',scrollY>30)}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* count-up */
+var re=/^([^\d]*?)(\d[\d,]*\.?\d*)(.*)$/;
+function prep(el){var n=el.firstChild;if(!n||n.nodeType!==3)return null;var m=n.nodeValue.match(re);if(!m||/→/.test(el.textContent))return null;var raw=m[2].replace(/,/g,'');if(/^20\d\d$/.test(raw))return null;var v=parseFloat(raw);return {n:n,pre:m[1],post:m[3],v:v,dec:(raw.split('.')[1]||'').length,comma:m[2].indexOf(',')>-1}}
+function f2(c,v){var s=v.toFixed(c.dec);if(c.comma){var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');s=p.join('.')}return c.pre+s+c.post}
+function count(el,dur){if(reduce||el.__done)return;var c=prep(el);if(!c)return;el.__done=1;var t0=performance.now();c.n.nodeValue=f2(c,0);(function st(t){var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,4);c.n.nodeValue=f2(c,c.v*e);if(k<1)requestAnimationFrame(st);else c.n.nodeValue=f2(c,c.v)})(t0)}
+function countIn(root){$$('.cs-big .n, .cs-res .rv',root).forEach(function(el){count(el,1200)})}
+
+if(reduce)return;
+
+/* cursor glow */
+var cur=$('#cur');addEventListener('pointermove',function(e){cur.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)'},{passive:true});
+
+/* tickers */
+$('.tk-row').classList.add('tk-row-anim');$('.mtrack').classList.add('anim');
+
+/* rotating word */
+var words=$$('.rot > span'),wi=0;setInterval(function(){words[wi].classList.remove('on');wi=(wi+1)%words.length;words[wi].classList.add('on')},2400);
+
+/* hero chart canvas */
+(function(){var cv=$('#chart'),cx=cv.getContext('2d'),W,Hh,dpr=Math.min(2,devicePixelRatio||1),pts=[],t=0;
+  function size(){W=cv.clientWidth;Hh=cv.clientHeight;cv.width=W*dpr;cv.height=Hh*dpr;cx.setTransform(dpr,0,0,dpr,0,0);pts=[];var n=60;for(var i=0;i<=n;i++){var x=i/n;pts.push({x:x,b:Math.pow(x,1.8),j:Math.random()*6.28})}}
+  size();addEventListener('resize',size);
+  function y(p,tt){return Hh*(0.88-p.b*0.62)+Math.sin(tt*1.3+p.j)*6+Math.sin(p.x*18+tt)*4}
+  function draw(){t+=0.012;cx.clearRect(0,0,W,Hh);
+    cx.strokeStyle='rgba(255,255,255,.04)';cx.lineWidth=1;for(var g=1;g<6;g++){cx.beginPath();cx.moveTo(0,Hh*g/6);cx.lineTo(W,Hh*g/6);cx.stroke()}
+    var reveal=Math.min(1,t/1.6);var last=Math.floor(pts.length*reveal);
+    var grd=cx.createLinearGradient(0,0,0,Hh);grd.addColorStop(0,'rgba(255,106,31,.28)');grd.addColorStop(1,'rgba(255,106,31,0)');
+    cx.beginPath();cx.moveTo(0,Hh);for(var i=0;i<last;i++){cx.lineTo(pts[i].x*W,y(pts[i],t))}cx.lineTo(pts[Math.max(0,last-1)].x*W,Hh);cx.closePath();cx.fillStyle=grd;cx.fill();
+    cx.beginPath();for(var k=0;k<last;k++){var X=pts[k].x*W,Y=y(pts[k],t);k?cx.lineTo(X,Y):cx.moveTo(X,Y)}cx.strokeStyle='#FF6A1F';cx.lineWidth=3;cx.shadowColor='rgba(255,106,31,.8)';cx.shadowBlur=18;cx.stroke();cx.shadowBlur=0;
+    if(last>0){var p=pts[last-1],X2=p.x*W,Y2=y(p,t);cx.beginPath();cx.arc(X2,Y2,6+Math.sin(t*4)*1.5,0,6.28);cx.fillStyle='#FFA05C';cx.fill();cx.beginPath();cx.arc(X2,Y2,16+Math.sin(t*4)*4,0,6.28);cx.fillStyle='rgba(255,160,92,.15)';cx.fill()}
+    requestAnimationFrame(draw)}
+  requestAnimationFrame(draw)})();
+
+/* smooth scroll */
+try{if(window.Lenis){var lenis=new Lenis({duration:1.15,smoothWheel:true});window.__lenis=lenis;lenis.on('scroll',function(){onScroll();if(window.ScrollTrigger)ScrollTrigger.update()});
+  if(window.gsap){gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0)}else{(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(0)}
+  $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href'),el=id.length>1&&$(id);if(el){e.preventDefault();lenis.scrollTo(el,{offset:-80})}})})}}catch(e){}
+
+/* GSAP: hero intro, pinned horizontal reel, reveals */
+if(window.gsap&&window.ScrollTrigger){
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.hero h1 .line > span',{yPercent:110,duration:1.2,ease:'expo.out',stagger:.12});
+  gsap.from('.avail, .hero-sub',{y:30,opacity:0,duration:1,ease:'expo.out',delay:.4,stagger:.1});
+  var mm=gsap.matchMedia();
+  mm.add('(min-width: 900px)',function(){
+    document.documentElement.classList.add('is-h');
+    var track=$('.rtrack');
+    var tw=gsap.to(track,{x:function(){return -(track.scrollWidth-innerWidth)},ease:'none',scrollTrigger:{trigger:'.reel',pin:true,scrub:1,start:'top top',end:function(){return '+='+(track.scrollWidth-innerWidth)},invalidateOnRefresh:true,
+      onUpdate:function(s){$('#hprog').style.transform='scaleX('+s.progress+')'}}});
+    $$('.cs').forEach(function(c){ScrollTrigger.create({trigger:c,containerAnimation:tw,start:'left 85%',once:true,onEnter:function(){countIn(c)}})});
+    return function(){document.documentElement.classList.remove('is-h')};
+  });
+  mm.add('(max-width: 899px)',function(){$$('.cs').forEach(function(c){ScrollTrigger.create({trigger:c,start:'top 85%',once:true,onEnter:function(){countIn(c)}})})});
+  $$('.rv-up').forEach(function(el){if(el.getBoundingClientRect().top<innerHeight*.9){return}ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){el.classList.add('vis')}});el.classList.add('pre')});
+  $$('.stat .v, .hl-n, .hl-row .num').forEach(function(el){ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:function(){count(el,1400)}})});
+  $$('.svc, .proc li, .bc, .hl, .ind').forEach(function(el,i){gsap.from(el,{y:40,opacity:0,duration:.9,ease:'expo.out',delay:(i%5)*.06,scrollTrigger:{trigger:el,start:'top 92%',once:true}})});
+  gsap.from('.final h2',{yPercent:30,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'.final',start:'top 80%',once:true}});
+  /* phone message */
+  var msg=$('#msg'),typ=$('#typing');
+  ScrollTrigger.create({trigger:'#phone',start:'top 80%',once:true,onEnter:function(){msg.style.display='none';typ.style.display='flex';setTimeout(function(){typ.style.display='none';msg.style.display='flex';gsap.from(msg,{y:20,opacity:0,duration:.6,ease:'back.out(1.6)'})},1300)}});
+  /* magnetic buttons */
+  $$('.btn').forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.2,y:(e.clientY-r.top-r.height/2)*.3,duration:.4})});b.addEventListener('pointerleave',function(){gsap.to(b,{x:0,y:0,duration:.6,ease:'elastic.out(1,.4)'})})});
+  addEventListener('load',function(){ScrollTrigger.refresh()});
+}
+$$('.rv-up').forEach(function(el){if(!el.classList.contains('pre'))el.classList.add('vis')});
+})();
+
+/* voice notes */
+(function(){var cur=null;
+function fmt(s){s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+document.querySelectorAll('.vn[data-src]').forEach(function(v){
+  var a=new Audio();a.preload='metadata';a.src=v.dataset.src;var bars=v.querySelectorAll('.vn-w i'),t=v.querySelector('.vn-t'),b=v.querySelector('.vn-b');
+  a.addEventListener('loadedmetadata',function(){t.textContent=fmt(a.duration)});
+  function paint(){var k=a.duration?a.currentTime/a.duration:0,n=Math.round(k*bars.length);bars.forEach(function(x,i){x.classList.toggle('on',i<n)});t.textContent=fmt(a.paused&&!a.currentTime?a.duration:a.currentTime)}
+  a.addEventListener('timeupdate',paint);
+  a.addEventListener('ended',function(){v.classList.remove('playing');a.currentTime=0;paint()});
+  a.addEventListener('pause',function(){v.classList.remove('playing')});
+  a.addEventListener('play',function(){v.classList.add('playing')});
+  b.addEventListener('click',function(){if(a.paused){if(cur&&cur!==a)cur.pause();cur=a;a.play()}else a.pause()});
+  v.querySelector('.vn-w').addEventListener('click',function(e){var r=this.getBoundingClientRect();if(a.duration){a.currentTime=(e.clientX-r.left)/r.width*a.duration;paint();if(a.paused){if(cur&&cur!==a)cur.pause();cur=a;a.play()}}});
+});})();
+
+</script>
+
+</body>
+</html>
